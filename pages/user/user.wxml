@@ -1,0 +1,71 @@
+<view>
+    <view class="flex-wrp" wx:if="{{username==''}}">
+        <image class="photo" src="{{userInfo.avatarUrl}}"></image>
+        <view class="text cfff">
+            <text bindtap="login" class="ft15">登录></text>
+            <view class="ft12 mt20">账号：{{userInfo.nickName}}</view>
+        </view>
+    </view>
+    <view class="flex-wrp" wx:else>
+        <image class="photo" src="{{avatar}}"></image>
+        <view class="name cfff">
+            <view class="ft12">{{username}}</view>
+        </view>
+    </view>
+    <view class="bar">
+        <navigator class="user-item" url="../order/order?tab=1">
+            <view class="bbottom arrowR">
+                <image class="icon" src="https://static.epetbar.com/static_web/wap/dist/images/noimages/wxuser-iconss1.png"></image>
+                <text class="ft14">全部订单</text>
+            </view>
+        </navigator>
+        <navigator class="user-item" url="../order/order?tab=2">
+            <view class="bbottom arrowR">
+                <image class="icon" src="https://static.epetbar.com/static_web/wap/dist/images/noimages/wxuser-iconss2.png"></image>
+                <text class="ft14">待付款</text>
+            </view>
+        </navigator>
+        <navigator class="user-item" url="../order/order?tab=3">
+            <view class="bbottom arrowR">
+                <image class="icon" src="https://static.epetbar.com/static_web/wap/dist/images/noimages/wxuser-iconss3.png"></image>
+                <text class="ft14">待收货</text>
+            </view>
+        </navigator>
+        <navigator class="user-item" url="../coupon/coupon">
+            <view class="bbottom arrowR">
+                <image class="icon" src="https://static.epetbar.com/static_web/wap/dist/images/noimages/wxuser-iconss4.png"></image>
+                <text class="ft14">优惠券</text>
+            </view>
+        </navigator>
+        <navigator class="user-item" url="../address/address">
+            <view class="bbottom arrowR">
+                <image class="icon icon-address" src="https://static.epetbar.com/static_web/wap/dist/images/noimages/wxuser-iconss5.png"></image>
+                <text class="ft14">地址管理</text>
+            </view>
+        </navigator>
+        <view class="user-item">
+            <view bindtap="tmedal" class="arrowR">
+                <image class="icon" src="https://static.epetbar.com/static_web/wap/dist/images/noimages/wxuser-iconss6.png"></image>
+                <text class="ft14">联系客服</text>
+            </view>
+        </view>
+    </view>
+    <view bindtap="cmedal" class="medal {{mshow==true?'':'hide'}}">
+        <view catchtap="dwrapper" class="wrapper bgfff">
+            <view class="content">
+                <view class="phone flex">
+                    <image class="photo-pic" mode="aspectFit" src="https://static.epetbar.com/static_web/wap/dist/images/noimages/{{pet_type=='dog'?'wxuser_d':'wxuser_c'}}phone.png"></image>
+                    <view class="it1">
+                        <view class="ft12">联系客服：<text class="c666">(免费长途)</text>
+                        </view>
+                        <view class="bold ft16 mt10 mb10">400-888-9200</view>
+                        <view class="pt10 ft12 tips">服务热线工作时间 09:00-21:00</view>
+                    </view>
+                </view>
+                <view class="ftc call">
+                    <text bindtap="cphone" class=" cfff">呼叫</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,59 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/cart/cart",
+        "pages/category/category",
+        "pages/goodslist/goodslist",
+        "pages/goodsdetail/goodsdetail",
+        "pages/logs/logs",
+        "pages/user/user",
+        "pages/search/search",
+        "pages/login/login",
+        "pages/download/download",
+        "pages/submitorder/submitorder",
+        "pages/address/address",
+        "pages/addaddress/addaddress",
+        "pages/order/order",
+        "pages/mycoupon/mycoupon",
+        "pages/coupon/coupon",
+        "pages/orderview/orderview",
+        "pages/orderlist/orderlist",
+        "pages/orderdetail/orderdetail",
+        "pages/webView/webView"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "E宠商城",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#333",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/index.png",
+                "selectedIconPath": "images/index_selected.png"
+            },
+            {
+                "pagePath": "pages/category/category",
+                "text": "分类",
+                "iconPath": "images/cate.png",
+                "selectedIconPath": "images/cate_selected.png"
+            },
+            {
+                "pagePath": "pages/cart/cart",
+                "text": "购物车",
+                "iconPath": "images/car.png",
+                "selectedIconPath": "images/car_selected.png"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "text": "我的e宠",
+                "iconPath": "images/my.png",
+                "selectedIconPath": "images/my_selected.png"
+            }
+        ]
+    }
+}

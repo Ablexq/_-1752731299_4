@@ -1,0 +1,8 @@
+<view class="btop ftc">
+    <image class="w100 pic" mode="aspectFit" src="https://static.epetbar.com/static_web/wap/src/images/wxmall/download_pic.jpg"></image>
+    <image class="logo" mode="aspectFit" src="https://static.epetbar.com/static_web/wap/src/images/wxmall/download_logo.png"></image>
+    <view class="download">
+        <image bindtap="blink" class="dbtn" mode="aspectFit" src="https://static.epetbar.com/static_web/wap/src/images/wxmall/code.png"></image>
+        <view class="ftc ft12 cfff mt20">小主，请下载e宠APP退/换货更方便 。</view>
+    </view>
+</view>

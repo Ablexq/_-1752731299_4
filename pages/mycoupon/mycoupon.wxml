@@ -1,0 +1,71 @@
+<view id="newCoupon">
+    <view class="flex bgfff nav ft14 ftc">
+        <view bindtap="changetp" class="it1 {{tp==1?'active':''}}" id="1">
+                可用优惠券({{codes_count1}}) 
+            </view>
+        <view bindtap="changetp" class="it1 {{tp==0?'active':''}}" id="0">
+                不可用优惠券({{codes_count2}}) 
+            </view>
+    </view>
+    <view class="content" wx:if="{{codes.available&&tp==1}}">
+        <view class="wrapper mb20" wx:for="{{codes.available}}" wx:key="{{index}}">
+            <view class="quan flex {{item.className}}">
+                <view class="info it1 bgfff">
+                    <view class="title ft12">{{item.top_tip}}</view>
+                    <view class="price rela normal flex">
+                        <image src="https://static.epetbar.com/static_web/wap/dist/images/noimages/newCoupon_{{item.imgCode}}sign.png" wx:if="{{item.code_type==0}}"></image>
+                        <text class="num bold fontNum">{{item.avg_cost}}</text>
+                        <view class="name">
+                            <text class="bold">{{item.code_name}}</text>
+                            <view class="ft12">{{item.code_typestr}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="sort ftc cfff rela ">
+                    <view class="s-wrapper">
+                        <view class="s-cell">
+                            <view class="ftc ft15 bold">{{item.type_name}}</view>
+                            <view class="ftc ft10">有效期至{{item.wap_life_end}}</view>
+                            <text bindtap="choose" class="check bgfff ft12 bold" data-check="{{item.checked}}" data-code="{{item.code}}" id="{{item.code}}">{{item.button.bt_name}} </text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="pt150 ftc ft12 c999" wx:if="{{codes.available.length==0&&tp==1}}">
+            <view class="epetIco2"></view>
+            <view class="pt10">小主，你暂没有券哦~ </view>
+        </view>
+    </view>
+    <view class="content" wx:if="{{codes.unavailable&&tp==0}}">
+        <view class="wrapper mb20" wx:for="{{codes.unavailable}}" wx:key="{{index}}">
+            <view class="quan flex {{item.className}}">
+                <view class="info it1 bgfff">
+                    <view class="title ft12">{{item.top_tip}}</view>
+                    <view class="price rela normal flex">
+                        <image src="https://static.epetbar.com/static_web/wap/dist/images/noimages/newCoupon_usedsign.png" wx:if="{{item.code_type==0}}"></image>
+                        <text class="num bold fontNum">{{item.avg_cost}}</text>
+                        <view class="name">
+                            <text class="bold">{{item.code_name}}</text>
+                            <view class="ft12">{{item.code_typestr}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="sort ftc cfff rela ">
+                    <view class="s-wrapper">
+                        <view class="s-cell">
+                            <view class="ftc ft15 bold">{{item.type_name}}</view>
+                            <view class="ftc ft10">有效期至{{item.wap_life_end}}</view>
+                            <text class="nocheck bgfff ft12 bold" data-code="{{item.code}}">{{item.button.bt_name}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="pt150 ftc ft12 c999" wx:if="{{codes.unavailable.length==0&&tp==0}}">
+            <view class="epetIco2"></view>
+            <view class="pt10">小主，你暂没有券哦~ </view>
+        </view>
+    </view>
+    <view bindtap="alink" class="confirm ftc cfff" wx:if="{{tp==1}}">确定</view>
+</view>

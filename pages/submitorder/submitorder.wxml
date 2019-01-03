@@ -1,0 +1,9 @@
+<view class="btop" id="submitorder">
+    <view class="wrapper ftc">
+        <image class="iconcart" mode="aspectFit" src="../../images/cart_success.png"></image>
+        <view class="text1">购买成功</view>
+        <view class="ft13 c666 text2">我们将尽快为你发货</view>
+        <navigator class="more c999" openType="switchTab" url="../index/index">继续逛逛</navigator>
+        <view class="ft12 c999 text3">订单详情请到“我的订单-全部订单”中查看</view>
+    </view>
+</view>

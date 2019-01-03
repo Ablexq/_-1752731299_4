@@ -1,0 +1,78 @@
+<view class="picker-wrap" wx:if="{{showPicker}}"></view>
+<view bindtap="goAddress" class="delivered rela">
+    <image mode="widthFix" src="https://static.epetbar.com/static_web/wap/dist/images/wxmall/deliver.png"></image>
+    <view class="delive-con">
+        <text class="ft16 c33 bold mr10">{{thisdata.address.realname}}</text>
+        <text class="ft16 c33 bold">{{thisdata.address.phone}}</text>
+        <text class="ft16 cred ml20">{{thisdata.address.reason}}</text>
+        <view class="de-address rela mt20">
+            <text class="fl afff ft14" wx:if="{{thisdata.address.default==1}}">默认</text>
+            <view class="c666 ft14">{{thisdata.address.address}}</view>
+        </view>
+    </view>
+    <text class="icon-more abs"></text>
+    <image mode="widthFix" src="https://static.epetbar.com/static_web/wap/dist/images/wxmall/deliver.png"></image>
+</view>
+<navigator class="mt20 orderPd cred flex flex-ac" url="../download/download" wx:if="{{thisdata.idcard.isNeedCard==1&&thisdata.idcard.display==1}}">
+    <icon class="mr10" size="15" type="warn"></icon>
+    <view class="it1">{{thisdata.idcard.tip}}</view>
+    <view>下载E宠APP认证</view>
+    <text class="icon-more"></text>
+</navigator>
+<view wx:for="{{thisdata.orders}}" wx:for-item="orders" wx:key="orders">
+    <view class="order mt20 bgfff">
+        <view class="title borbd7">
+            <text class="mr10 ft14">{{orders.name}}</text>
+            <text class="ft13 c333 {{orders.csscode}}">{{orders.display_name}}</text>
+        </view>
+        <view class="good flex bf3f4f5" wx:for="{{orders.goods}}" wx:for-item="goods" wx:key="goods">
+            <navigator class="inline-block mr10" url="../goodsdetail/goodsdetail?gid={{goods.gid}}">
+                <image mode="widthFix" src="{{goods.photo}}"></image>
+            </navigator>
+            <view class="goodtext flex">
+                <navigator class="ft14 c333" url="../goodsdetail/goodsdetail?gid={{goods.gid}}">{{goods.subject}}
+        </navigator>
+                <view>
+                    <text class="cf0 fl ft12">¥</text>
+                    <text class="cf0 fl ft14">{{goods.price}}</text>
+                    <text class="fr c999 ft10">X{{goods.buynum}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="getSendWays" class="delivery mt20 bgfff ft14 rela" data-index="{{index}}" data-swid="{{orders.sendWays.swid}}" data-wid="{{orders.wid}}">
+        <text class="c333 fl">配送方式</text>
+        <text class="fr c999 pr20 rela" data-wid="{{orders.wid}}" hoverClass="navigator-hover" url="">{{orders.sendWays.name}}</text>
+        <text class="icon-more abs"></text>
+    </view>
+</view>
+<view bindtap="selectCoupon" class="delivery mt20 bgfff ft14 rela" hoverClass="navigator-hover">
+    <text class="c333 fl">{{thisdata.CodePay.name}}</text>
+    <view class="fr c999 pr20 rela">{{thisdata.CodePay.other_tip}}</view>
+    <text class="icon-more abs"></text>
+</view>
+<view class="total mt20 bgfff ft14 c333 bf3f4f5">
+    <view class="clearfix mb10" wx:for="{{thisdata.sum.items}}" wx:for-item="items">
+        <text class="fl">{{items.name}}</text>
+        <text class="fr cf0 {{items.delLine==1?'through':''}}">{{items.value}}</text>
+    </view>
+</view>
+<view class="delivery bgfff ft14  c333">
+    <text class="fr cf0 bold ft18 ml10">¥{{thisdata.sum.finalTotal}}</text>
+    <text class="fr">{{thisdata.sum.name}}:</text>
+</view>
+<view class="orderBtnBox">
+    <view bindtap="createOrder" class="mt20 orderBtn" hoverClass="BtnGreen" type="primary" wx:if="{{isSplitOrder}}">提交订单</view>
+    <view bindtap="wxpay" class="mt20 orderBtn" hoverClass="BtnGreen" type="primary" wx:else>微信支付</view>
+</view>
+<view animation="{{animationData}}" class="picker-send-way bgfff" wx:if="{{showPicker}}">
+    <view class="clearfix picker-btn ft16">
+        <text bindtap="cancelSend" class="fl c999">取消</text>
+        <text bindtap="submitSend" class="fr btn-submit">确定</text>
+    </view>
+    <picker-view bindchange="changeSendWay" indicatorStyle="height: 50px;" value="{{checkedSwIndex}}">
+        <picker-view-column>
+            <view class="ftc ft15" style="line-height: 50px" wx:for="{{sendWayList}}">{{item.name}}</view>
+        </picker-view-column>
+    </picker-view>
+</view>

@@ -1,0 +1,65 @@
+page {
+    background: #f4f5f7;
+}
+
+.search-area {
+    float: left;
+    width: 620rpx;
+    margin-left: 20rpx;
+}
+
+.search-btn {
+    height: 70rpx;
+    line-height: 70rpx;
+    margin-top: -15rpx;
+}
+
+.hot-tit {
+    background: #fbfbfd;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding-left: 24rpx;
+    font-size: 14px;
+}
+
+.hot image {
+    width: 40rpx;
+    height: 40rpx;
+    position: relative;
+    top: -2rpx;
+}
+
+.hot-list {
+    padding: 10rpx 0rpx 30rpx 30rpx;
+}
+
+.hot-list span {
+    padding: 5rpx 15rpx;
+    background: #fff;
+    border-radius: 20rpx;
+}
+
+.history-list {
+    background: #fff;
+    padding-left: 30rpx;
+}
+
+.history-list view {
+    height: 70rpx;
+    line-height: 70rpx;
+}
+
+.history-list navigator {
+    position: relative;
+    z-index: 1;
+}
+
+.clear-history {
+    width: 600rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    margin: 0 auto;
+    margin-top: 30rpx;
+    border: 1px solid #333;
+    border-radius: 8rpx;
+}

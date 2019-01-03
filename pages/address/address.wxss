@@ -1,0 +1,56 @@
+page {
+    background: #f3f4f5;
+}
+
+.address-wrap {
+    padding-bottom: 99rpx;
+}
+
+.address-item {
+    margin-bottom: 25rpx;
+    padding-top: 35rpx;
+}
+
+.button-area {
+    background: #fbfbfc;
+    height: 90rpx;
+    line-height: 90rpx;
+}
+
+.button-area .edit-btn {
+    margin-right: 100rpx;
+}
+
+.button-area .edit-btn text,.button-area .del-btn text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.moren {
+    margin-left: -13rpx;
+}
+
+.edit-btn image {
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.del-btn image {
+    width: 30rpx;
+    height: 37rpx;
+}
+
+.add-btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 99rpx;
+    line-height: 99rpx;
+    margin: 0 auto;
+    background: #f03e3e;
+}
+
+.hover-addr {
+    background: #fbfbfc;
+}

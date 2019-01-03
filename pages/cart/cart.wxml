@@ -1,0 +1,90 @@
+<import src="../../template/template.wxml"></import>
+<scroll-view scrollY class="cartview" wx:if="{{!showNoData}}">
+    <view class="mt20 cart" wx:for="{{thisdata.orders}}" wx:for-index="ordersindex" wx:key="wid">
+        <view class="checkbox mycart-tit rela bgfff">
+            <checkbox bindtap="changecheck" checked="{{item.is_selected!='0'?'true':''}}" data-is-selected="{{item.is_selected}}" data-item="{{ordersindex}}" data-wid="{{item.wid}}"></checkbox>
+            <view class="icon">
+                <text class="ft13 c333 {{item.csscode}}">{{item.display_name}}</text>
+                <text bindtap="cartTips" class="quest" data-tips="{{item.display_tip}}" wx:if="{{item.display_tip}}">?</text>
+            </view>
+            <view class="cessTotal" wx:if="{{item.cessTotal>0}}">关税：<text class="through">￥{{item.cessTotal}}</text>
+            </view>
+        </view>
+        <view class="goods" data-item="{{ordersindex}}">
+            <view class="cartBox bgfff" wx:for="{{item.list}}" wx:for-index="listindex" wx:key="gid">
+                <view class="cf60 ft12 pt10 pb10" wx:if="{{item.tip}}">{{item.tip}}</view>
+                <view bindtouchmove="touchM" bindtouchstart="touchS" class="good {{item.isTouchMove?'touch-move-active':''}}" data-item="{{listindex}}" data-itemparent="{{ordersindex}}">
+                    <checkbox bindtap="changecheckone" checked="{{item.is_selected!='0'?'true':''}}" data-gid="{{item.gid}}" data-is-selected="{{item.is_selected}}" data-item="{{listindex}}" data-itemparent="{{ordersindex}}"></checkbox>
+                    <navigator class="goodsimg" url="../goodsdetail/goodsdetail?gid={{item.gid}}">
+                        <image mode="widthFix" src="{{item.photo}}"></image>
+                    </navigator>
+                    <view class="other">
+                        <navigator class="ft13 c333" url="../goodsdetail/goodsdetail?gid={{item.gid}}">
+                            <text class="phead" wx:if="{{item.phead!=''}}">{{item.phead}}</text>{{item.subject}}</navigator>
+                        <view>
+                            <image class="mr10 icon-img" data-idx="{{idx}}" data-index="{{listindex}}" lazyLoad="true" mode="aspectFit" src="{{icons.src}}" wx:for="{{item.icons}}" wx:for-index="idx" wx:for-item="icons" wx:key="idx"></image>
+                        </view>
+                        <view class="bottom">
+                            <view class="money">
+                                <text class="ft13">¥</text>
+                                <text class="arial">{{item.price}}</text>
+                                <view class="ft12 c999 pt10" wx:if="{{item.cessTotal}}">关税:<text class="through">{{item.cessTotal}}</text>
+                                </view>
+                            </view>
+                            <template is="buynum-input" data="{{ordersindex:ordersindex,listindex:listindex,item:item}}"></template>
+                        </view>
+                    </view>
+                    <view bindtap="delgoods" class="del ft14 cfff ftc" data-gid="{{item.gid}}">删除</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bgfff mt20 cart" wx:for="{{thisdata.invalidOrders}}" wx:for-index="ordersindex" wx:key="wid">
+        <view class="checkbox mycart-tit">
+            <view class="icon">
+                <text class="ft14 c666">{{item.display_name}}</text>
+                <text bindtap="cartTips" class="quest" data-tips="{{item.display_tip}}">?</text>
+                <view class="fr">
+                    <text bindtap="clearInvalid" class="clear-invalid c666 ft14">清除失效商品</text>
+                </view>
+            </view>
+        </view>
+        <view class="goods" data-item="{{ordersindex}}">
+            <view class="cartBox" wx:for="{{item.list}}" wx:for-index="listindex" wx:key="gid">
+                <view class="good {{item.isTouchMove?'touch-move-active':''}}" data-item="{{listindex}}" data-itemparent="{{ordersindex}}">
+                    <view class="fl invalid cfff ft12">
+                        <text>失效</text>
+                    </view>
+                    <navigator class="goodsimg" url="../goodsdetail/goodsdetail?gid={{item.gid}}">
+                        <image mode="widthFix" src="{{item.photo}}"></image>
+                    </navigator>
+                    <view class="other">
+                        <navigator class="ft13 ccc" url="../goodsdetail/goodsdetail?gid={{item.gid}}">{{item.subject}}</navigator>
+                        <view class="bottom">
+                            <view class="money">
+                                <text class="ft13 ccc">¥</text>
+                                <text class="arial ccc">{{item.price}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<view class="total bgfff ft16" wx:if="{{!showNoData&&orderlength!=0}}">
+    <checkbox bindtap="selectall" checked="{{thisdata.is_selected!='0'?'true':''}}" data-is-selected="{{thisdata.is_selected}}" value="52"></checkbox>
+    <text class="arial">总额¥</text>
+    <text>{{thisdata.sum.priceFinal}}</text>
+    <text class="ft12 c666">(不含运费)</text>
+    <text bindtap="gotopay" class="gopay fr">
+        <text>去结算(</text>
+        <text class="num arial">{{thisdata.sum.totalnum}}</text>)</text>
+</view>
+<view class="noorder ftc" wx:if="{{showNoData}}">
+    <image mode="widthFix" src="https://static.epetbar.com/static_web/wap/dist/images/wxmall/cart.png"></image>
+    <view class="ft16 c666">购物车是空的</view>
+    <view class="ft16 c666 btn">
+        <text bindtap="gotoindex">去逛逛</text>
+    </view>
+</view>

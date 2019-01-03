@@ -1,0 +1,44 @@
+<import src="../../template/template.wxml"></import>
+<view class="goodslist-wrap">
+    <view class="{{isFixTop}} top-area">
+        <template is="search" data="{{hasNavigator:hasNavigator,searchText:searchText,isFtc:isFtc,keyword:keyword,openType:openType}}"></template>
+        <view class="rank clearfix bbottom bgfff">
+            <view class="sort fl ft14 ftc btop" wx:for="{{sortRank}}" wx:key="{{index}}">
+                <view animation="{{item.animation}}" bindtap="changeRank" class="{{item.class}}" data-index="{{index}}" data-rank="{{item.type}}">
+                    <span wx:if="{{item.type=='default'}}">{{shortName}}</span>
+                    <span wx:else>{{item.title}}</span>
+                    <span class="icon-moreunfold" wx:if="{{item.type=='default'}}"></span>
+                </view>
+                <view class="sort-list" wx:if="{{item.type=='default'&&showSortList}}">
+                    <view catchtap="changeRankList" class="{{itemName.checked==1?'current':''}} rela" data-rank="{{itemName.value}}" wx:for="{{item.list}}" wx:for-index="idx" wx:for-item="itemName">
+            {{itemName.item}}
+            <span class="icon-selected abs cf0 icon-check" wx:if="{{itemName.checked==1}}"></span>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="no-data-wrap ftc" wx:if="{{showNoData}}">
+        <view class="no-data-con">
+            <image src="https://static.epetbar.com/static_web/wap/dist/images/noimages/nodata_stance.png"></image>
+            <view class="ft14 c666">sorry～当前未找到<text class="cf0">{{keyword}}</text>相关的结果！</view>
+        </view>
+    </view>
+    <scroll-view bindscroll="scrollList" bindscrolltolower="scrollBottom" bindscrolltoupper="refreshList" class="goods-list-scroll" lowerThreshold="20" scrollTop="{{scrollTop}}" scrollY="true" style="calc(100% - 188rpx);" upperThreshold="-20">
+        <template is="goodslist" data="{{goodslist:goodslist,images:images}}"></template>
+        <template is="loading-toast" data="{{showLoadingToast:showLoadingToast,showLoadingImg:showLoadingImg,loadingToast:loadingToast}}"></template>
+    </scroll-view>
+    <view class="page-con ft12 ftc" wx:if="{{showPageInfo}}">{{currentPage}}/{{totalPage}}</view>
+    <template is="go-top" data="{{showPageInfo:showPageInfo}}"></template>
+    <view bindtap="hideMC" class="mc-wrap" wx:if="{{showSortList}}"></view>
+    <view class="recom-wrap" wx:if="{{recommendData!=''&&!showPageInfo}}">
+        <view bindtap="changeSite" class="rela clearfix" data-params="{{item.params}}" wx:for="{{recommendData}}">
+            <image class="recom-site fl" src="{{item.icon}}"></image>
+            <view class="recom-list fl cfff">
+                <view class="ft12">{{item.text_top}}</view>
+                <view class="ft14">{{item.text_bottom}}(<text class="bold">{{item.num}}</text>)</view>
+            </view>
+            <text class="recom-icon abs"></text>
+        </view>
+    </view>
+</view>

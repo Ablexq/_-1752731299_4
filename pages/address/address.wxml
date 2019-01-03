@@ -1,0 +1,29 @@
+<view class="address-wrap">
+    <view bindtap="chooseAddr" class="address-item bgfff {{index==0?'btop':''}}" data-adid="{{item.adid}}" hover="true" hoverClass="{{referrer!=''?'hover-addr':''}}" wx:if="{{!isEmpty}}" wx:for="{{addressList}}">
+        <view class="c333 ft15 pl30 pr30 mb25">
+            <text class="mr35">{{item.realname}}</text>
+            <text>{{item.phone}}</text>
+        </view>
+        <view class="pl30 pr30 pb35 ft14">
+            <text class="cf0 moren" wx:if="{{item.default==1}}">【默认】</text>
+            <text class="c666">{{item.address}}</text>
+        </view>
+        <view class="button-area clearfix">
+            <view class="fr pr30 ft14 c999">
+                <view catchtap="editAddress" class="fl edit-btn" data-adid="{{item.adid}}">
+                    <image class="mr10" src="https://static.epetbar.com/mpet/users/images/editor.png"></image>
+                    <text>编辑</text>
+                </view>
+                <view catchtap="delAddr" class="fl del-btn" data-aid="{{item.adid}}" data-moren="{{item.default}}">
+                    <image class="mr10" src="https://static.epetbar.com/mpet/users/images/del.png"></image>
+                    <text>删除</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="ftc ft12 c999 pt150" wx:if="{{isEmpty}}">
+        <view class="epetIco1"></view>
+        <view>小主，您当前暂无地址哦~</view>
+    </view>
+    <view bindtap="addAddress" class="add-btn ftc cfff ft15">添加地址</view>
+</view>

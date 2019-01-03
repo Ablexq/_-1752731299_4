@@ -1,0 +1,21 @@
+.logo {
+    height: 150rpx;
+    margin-top: 40rpx;
+}
+
+.download {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #63c145;
+    padding: 47rpx 0;
+}
+
+.dbtn {
+    height: 156rpx;
+}
+
+.pic {
+    height: 400rpx;
+}

@@ -1,0 +1,32 @@
+<script src="category.js"></script>
+<import src="../../template/template.wxml"></import>
+<view id="categorybox">
+    <template is="search" data="{{hasNavigator:hasNavigator,searchText:searchText,isFtc:isFtc,keyword:keyword}}"></template>
+    <view class="kindbox">
+        <view class="leftbox bgfff">
+            <scroll-view class="scroll" scrollIntoView="{{theView}}" scrollTop="{{scrollTop}}" scrollY="true" style="height:100%;">
+                <view bindtap="switchRightTab" class="li ftc {{curNav==item.cateid?'on':''}}" data-id="{{item.cateid}}" data-index="{{index}}" id="li-{{index}}" wx:for="{{leftdata}}" wx:key="{{index}}">{{item.name}}</view>
+            </scroll-view>
+        </view>
+        <view class="rightbox bgfff">
+            <view class="sort-detail-list">
+                <view class="sort-recom bgfff" wx:if="rightdata">
+                    <view class="hot-recom bbtf3">
+                        <navigator class="title c999 db ft12 mt10 pl20 pr20" url="{{rightdata.rigth_img.image==''?'':'../goodslist/goodslist?cateid='+curNav}}">{{rightdata.title}}<image class="fr arrowL" src="{{rightdata.rigth_img.image}}"></image>
+                        </navigator>
+                        <view class="clearfix ul">
+                            <view class="fl mt40 li" wx:for="{{rightdata.list}}" wx:for-item="listdata" wx:key="{{index}}">
+                                <navigator url="{{'../goodslist/goodslist?cateid='+listdata.id_param}}">
+                                    <view class="rela loadimg-nofixed">
+                                        <image class="w100 image" mode="aspectFit" src="{{listdata.photo}}"></image>
+                                        <view class="ftc ft12 mt20 c666">{{listdata.name}}</view>
+                                    </view>
+                                </navigator>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

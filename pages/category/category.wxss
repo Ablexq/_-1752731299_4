@@ -1,0 +1,89 @@
+image {
+    height: auo;
+}
+
+.mt40 {
+    margin-top: 40rpx;
+}
+
+.leftbox {
+    position: fixed;
+    top: 98rpx;
+    left: 0;
+    bottom: -50rpx;
+    padding-bottom: 45rpx;
+    border-top: 2px solid #f3f4f5;
+    border-right: 5rpx solid #f3f4f5;
+}
+
+.leftbox .li {
+    padding: 30rpx 0;
+    border-bottom: 1rpx solid #f3f4f5;
+    width: 140rpx;
+    height: 40rpx;
+    font-size: 26rpx;
+}
+
+.leftbox .li.on {
+    background: #f3f4f5;
+    color: #ed4044;
+}
+
+::-webkit-scrollbar {
+    width: 0rpx;
+    height: 0rpx;
+    color: transparent;
+}
+
+.rightbox {
+    margin: 98rpx 0 0 140rpx;
+}
+
+.sort-detail-list .hot-recom .ul .li,.sort-detail-list .other-list .ul .li {
+    width: 33.33%;
+    padding: 0 5rpx;
+    box-sizing: border-box;
+}
+
+.sort-detail-list .arrowL {
+    height: 10px;
+    margin-top: 5rpx;
+    width: 46rpx;
+}
+
+.sort-detail-list .hot-recom,.sort-detail-list .other-list {
+    padding: 15rpx 5rpx 20rpx;
+}
+
+.bbtf3 {
+    border-top: 1px solid #f3f4f5;
+}
+
+.lheight {
+    height: 45rpx;
+    max-width: 100%;
+}
+
+.hot-recom .li p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 20rpx;
+}
+
+.sort-detail-list .arrowL {
+    height: 20rpx;
+    margin-top: 5rpx;
+    width: 92rpx;
+}
+
+.image {
+    height: 100rpx;
+}
+
+.search-wrap {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}

@@ -1,0 +1,24 @@
+.iconcart {
+    height: 157rpx;
+    margin-top: 20%;
+}
+
+.text1 {
+    margin-top: 30rpx;
+    font-size: 17px;
+}
+
+.text2 {
+    margin: 20rpx 0 130rpx;
+}
+
+.more {
+    display: inline-block;
+    padding: 25rpx 66rpx;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+.text3 {
+    margin-top: 50rpx;
+}

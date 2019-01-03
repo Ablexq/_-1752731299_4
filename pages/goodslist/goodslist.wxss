@@ -1,0 +1,127 @@
+page {
+    height: 100%;
+    background: #f6f6f6;
+}
+
+.no-data-wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: table;
+    z-index: -1;
+}
+
+.no-data-con {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.no-data-con image {
+    width: 206rpx;
+    height: 231rpx;
+    margin-bottom: 20rpx;
+}
+
+.goodslist-wrap {
+    height: 100%;
+}
+
+.sort {
+    width: 33.3%;
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+.sort-list {
+    width: 750rpx;
+    text-align: left;
+    background: #f5f5f5;
+    position: relative;
+    top: -2rpx;
+    z-index: 20;
+}
+
+.sort-list view {
+    padding: 0 40rpx;
+}
+
+.sort-list .current {
+    background: #fff;
+}
+
+.icon-check {
+    font-size: 30px;
+    right: 25rpx;
+}
+
+.checked {
+    color: #ea5858;
+}
+
+.mc-wrap {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+
+.top-area {
+    position: relative;
+    z-index: 10;
+}
+
+.fix-top {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: #fff;
+}
+
+.goods-list-scroll {
+    height: calc(100% - 188rpx);
+}
+
+.page-con {
+    position: fixed;
+    bottom: 40rpx;
+    left: calc(50% - 40rpx);
+    width: 80rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    background: rgba(0,0,0,.6);
+    color: #fff;
+}
+
+.recom-wrap {
+    position: fixed;
+    bottom: 20rpx;
+    left: 1%;
+    width: 98%;
+    height: 100rpx;
+    background: rgba(0,0,0,.8);
+    border-radius: 10rpx;
+    padding: 15rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.recom-wrap .recom-site {
+    width: 70rpx;
+    height: 70rpx;
+    margin-right: 25rpx;
+}
+
+.recom-icon {
+    display: inline-block;
+    width: 34rpx;
+    height: 30rpx;
+    top: 20rpx;
+    right: 5rpx;
+    background: url(https://static.epetbar.com/static_wap/epetapp/pages/goods_list/images/icon/right-icon.gif) no-repeat;
+    background-size: 100% 100%;
+}

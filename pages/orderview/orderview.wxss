@@ -1,0 +1,41 @@
+.status {
+    padding: 20rpx 0 20rpx 40rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 11;
+}
+
+.status text {
+    margin-left: 10rpx;
+}
+
+.list {
+    padding: 0 0 20rpx 100rpx;
+    margin-top: 220rpx;
+}
+
+.tree {
+    width: 1px;
+    background: #e6e6e6;
+    top: 30rpx;
+    left: 40rpx;
+    bottom: 20rpx;
+}
+
+.dicon {
+    width: 26rpx;
+    height: 26rpx;
+    border-radius: 50%;
+    top: 6rpx;
+    left: -68rpx;
+    background: #d7d7d7;
+    z-index: 1;
+}
+
+.cf0 .dicon {
+    left: -76rpx;
+    background: #ea3e40;
+    border: 8rpx solid #f8b0af;
+}

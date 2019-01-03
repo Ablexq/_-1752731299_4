@@ -1,0 +1,286 @@
+.wxParse-div image {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+.wxParse-div text {
+    display: none;
+}
+
+.wxParse-video video {
+    width: 100%;
+}
+
+.wxParse-span {
+    padding: 10rpx 20rpx;
+    line-height: 45rpx;
+}
+
+.wxParse-span text {
+    display: none;
+}
+
+.wxParse-p {
+    padding: 0 20rpx;
+}
+
+.wxParse-p text {
+    display: none;
+}
+
+.wxParse-inline {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.wxParse-video {
+    text-align: center;
+}
+
+.wxParse-video-video {
+    width: 100%;
+}
+
+page {
+    padding-bottom: 99rpx;
+    height: 100%;
+}
+
+.goods-wrap {
+    height: 100%;
+}
+
+.pr100 {
+    padding-right: 100rpx;
+}
+
+.goods-detail-info {
+    padding-bottom: 20rpx;
+}
+
+.goodsdetail .slide-image {
+    width: 100%;
+    height: 750rpx;
+}
+
+swiper {
+    height: 750rpx;
+}
+
+.goodsdetail .swiper-dot {
+    width: 60rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    right: 30rpx;
+    bottom: 10rpx;
+    background: rgba(0,0,0,.2);
+    border-radius: 50%;
+    font-size: 10px;
+}
+
+.price-right {
+    height: 40rpx;
+    line-height: 40rpx;
+    right: 30rpx;
+    bottom: 30rpx;
+    border-left: 1px solid #d7d7d7;
+}
+
+.price-right image {
+    width: 20rpx;
+    height: 20rpx;
+}
+
+.share-btn {
+    width: 60rpx;
+    line-height: 1.5;
+    top: 0;
+    right: 30rpx;
+    padding: 0;
+    border: none!important;
+}
+
+.share-btn image {
+    width: 25rpx;
+    height: 28rpx;
+}
+
+.subject,.presubject {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.format .format-tit {
+    height: 90rpx;
+    line-height: 90rpx;
+    padding: 0 25rpx 0 30rpx;
+}
+
+.format-choose {
+    padding: 0 25rpx 20rpx 30rpx;
+}
+
+.format-item {
+    padding: 5rpx 30rpx;
+    border: 1px solid #d7d7d7;
+    border-radius: 10rpx;
+}
+
+.format-choose .current {
+    background: #f03e3e;
+    border: 1px solid #f03e3e;
+    color: #fff;
+}
+
+.format-unit {
+    margin-left: 76rpx;
+}
+
+.buynum-wrap {
+    float: left!important;
+}
+
+.buy-num .tit {
+    line-height: 55rpx;
+}
+
+.reply-tit {
+    padding: 0 30rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+}
+
+.reply-tit image {
+    width: 33rpx;
+    height: 33rpx;
+}
+
+.reply-item {
+    padding: 25rpx 30rpx;
+}
+
+.reply-item .reply-con {
+    width: 586rpx;
+}
+
+.reply-item .user-image {
+    width: 84rpx;
+    height: 84rpx;
+    border-radius: 50%;
+}
+
+.reply-item .star {
+    height: 33rpx;
+    line-height: 33rpx;
+}
+
+.reply-item .star-image {
+    width: 145rpx;
+    height: 24rpx;
+}
+
+.reply-item .user-info image {
+    width: 20rpx;
+    height: 20rpx;
+}
+
+.reply-item .img-list image {
+    width: 110rpx;
+    height: 110rpx;
+}
+
+.pull-text {
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.button-area {
+    height: 99rpx;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.button-area .go-cart {
+    width: 190rpx;
+    height: 99rpx;
+    background: #f5f6f8;
+}
+
+.button-area .go-cart image {
+    width: 38rpx;
+    height: 38rpx;
+    margin-top: 10rpx;
+}
+
+.button-area .add-cart {
+    width: 280rpx;
+    height: 99rpx;
+    background: #fc9e44;
+    line-height: 99rpx;
+}
+
+.button-area .buy {
+    width: 280rpx;
+    height: 99rpx;
+    background: #f03e3e;
+    line-height: 99rpx;
+}
+
+.detail-nav .detail-nav-item {
+    width: 33%;
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 15rpx 0;
+}
+
+.detail-nav .active {
+    color: #f03e3e;
+    border-bottom: 2px solid #f03e3e;
+}
+
+.tab-tit {
+    background: #f6f6f6;
+    border-top: 1px solid #e7e7e7;
+}
+
+.table {
+    border-left: 1px solid #e7e7e7;
+}
+
+.table text {
+    border-bottom: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7;
+    padding: 10rpx 0;
+}
+
+.left-td {
+    width: calc(40% - 2px);
+}
+
+.right-td {
+    width: calc(60% - 1px);
+}
+
+.td2 {
+    text-indent: 2em;
+}
+
+.auth-text text {
+    line-height: 40rpx;
+}
+
+.logo {
+    width: 160rpx;
+}
+
+.goods-detail-info>image {
+    width: 100%;
+}
+
+.no-preject {
+    height: 110rpx;
+    padding-bottom: 10rpx;
+}

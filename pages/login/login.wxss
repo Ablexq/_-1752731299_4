@@ -1,0 +1,104 @@
+.tab {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    background: #f7f7f7;
+    border-top: 1px solid #cbcbcb;
+}
+
+.tab>view {
+    width: 50%;
+    padding: 25rpx 0;
+}
+
+.tab>view text {
+    display: block;
+}
+
+.form {
+    padding: 0 55rpx;
+    margin-top: 20rpx;
+    font-size: 15px;
+    color: #666;
+}
+
+.form>view {
+    border-bottom: 1px solid #e7e7e7;
+    padding-left: 20rpx;
+}
+
+.form input {
+    height: 75rpx;
+    line-height: 75rpx;
+    margin-top: 50rpx;
+}
+
+.login {
+    position: relative;
+    font-size: 13px;
+    color: #666;
+}
+
+.login input {
+    width: 400rpx;
+}
+
+.login .getcode {
+    position: absolute;
+    text-align: center;
+    right: 0;
+    bottom: 10rpx;
+    border: 1px solid #b8b8b8;
+    padding: 15rpx;
+    border-radius: 10rpx;
+}
+
+.btn {
+    width: 100%;
+    height: 85rpx;
+    line-height: 85rpx;
+    margin: 50px auto 0;
+    border: none;
+    background: #4f9c36;
+    border-radius: 50rpx;
+    color: #fff;
+    font-size: 16px;
+}
+
+.now {
+    background: #fff;
+    border-bottom: 2px solid #4f9c36;
+    position: relative;
+}
+
+.triangle-up {
+    display: none;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 5px solid #4f9c36;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+}
+
+.now .triangle-up {
+    display: block;
+}
+
+.passicon {
+    position: relative;
+}
+
+.passicon input {
+    width: 400rpx;
+}
+
+.passicon .icon {
+    position: absolute;
+    width: 120rpx;
+    height: 60rpx;
+    right: 0;
+    bottom: 10rpx;
+}

@@ -1,0 +1,90 @@
+<import src="../../template/template.wxml"></import>
+<view class="container">
+    <view class="header ftc">
+        <template is="search" data="{{hasNavigator:hasNavigator,searchText:searchText,isFtc:isFtc}}"></template>
+    </view>
+    <view class="banner">
+        <swiper autoplay="{{bannerData.autoplay}}" circular="{{bannerData.circular}}" duration="{{bannerData.duration}}" indicatorActiveColor="#4f9b36" indicatorDots="{{bannerData.indicatorDots}}" interval="{{bannerData.interval}}" nextMargin="{{bannerData.nextMargin}}px" previousMargin="{{bannerData.previousMargin}}px" vertical="{{bannerData.vertical}}">
+            <swiper-item wx:for="{{adImg}}" wx:key="item">
+                <image bindtap="goWebView" class="slide-image" data-url="{{item.target.param}}" src="{{item.image}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="menu">
+        <view class="clearfix fl rela menu-type-wrap menu-type-wrap-dog">
+            <view bindtap="changeType" class="menu-type {{petType=='dog'?'dog-menu-hov':'dog-menu'}}" data-type="dog"></view>
+            <view class="abs sanjiao-wrap" wx:if="{{petType=='dog'}}">
+                <view class="sanjiao-up">
+                    <text></text>
+                </view>
+            </view>
+        </view>
+        <view class="clearfix fr rela menu-type-wrap menu-type-wrap-cat">
+            <view bindtap="changeType" class="menu-type {{petType=='cat'?'cat-menu-hov':'cat-menu'}}" data-type="cat"></view>
+            <view class="abs sanjiao-wrap" wx:if="{{petType=='cat'}}">
+                <view class="sanjiao-up sanjiao-up-cat">
+                    <text></text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="menu-con flex">
+        <view bindtap="goCate" class="menu-item it1 ftc" data-cateid="{{item.cateid}}" wx:for="{{menuList}}" wx:key="key">
+            <image src="{{item.img}}"></image>
+            <text class="ft12 c666">{{item.title}}</text>
+        </view>
+    </view>
+    <template is="divide" data></template>
+    <view class="Ad">
+        <view class="te-mai" url="">
+            <image bindtap="goWebView" class="fullH" data-url="{{adv_left.target.param}}" src="{{adv_left.image}}"></image>
+        </view>
+        <view class="pin-pairi" url="">
+            <image bindtap="goWebView" class="halfH" data-url="{{adv_top.target.param}}" src="{{adv_top.image}}"></image>
+        </view>
+        <view class="shang-xinri" url="">
+            <image bindtap="goWebView" class="halfH" data-url="{{adv_bottom.target.param}}" src="{{adv_bottom.image}}"></image>
+        </view>
+    </view>
+    <view class="surprise">
+        <view class="sur-header bbottom">
+            <image class="sur-logo fl" src="https://static.epetbar.com/static_web/wap/src/images/wxmall/surprise_title.png"></image>
+            <view class="fr ft12 mr30">
+                <view wx:if="{{showTime}}">
+                    <span class="mr15">{{timeTit}}</span>
+                    <span class="mr10 s-border ftc arial">{{leaveTime.h}}</span>
+                    <span class="mr10">:</span>
+                    <span class="mr10 s-border ftc arial">{{leaveTime.m}}</span>
+                    <span class="mr10">:</span>
+                    <span class="s-border ftc arial">{{leaveTime.s}}</span>
+                </view>
+                <view wx:if="{{!showTime}}">已结束</view>
+            </view>
+        </view>
+        <scroll-view class="tit-scroll bbottom" scrollIntoView="{{currentTit}}" scrollX="true">
+            <view bindtap="changeSur" class="ftc dib sur-tit {{item.stateClass=='on'?'cf0':''}}" data-index="{{index}}" data-overTime="{{item.target_time}}" data-tid="{{item.tid}}" data-type="{{item.state_type}}" id="tit{{index}}" wx:for="{{surTitle}}" wx:key="key">
+                <view class="sur-time ft18 bold arial">{{item.time}}</view>
+                <view class="sur-state ft12">{{item.stateLabel}}</view>
+            </view>
+        </scroll-view>
+        <view class="sur-list">
+            <view bindtap="goGoods" class="clearfix sur-item bbottom" data-gid="{{item.gid}}" wx:for="{{surList}}" wx:key="key">
+                <image class="surlist-image fl" src="{{item.photo}}"></image>
+                <view class="sur-con fr rela">
+                    <text class="ft14 c444 el2 surlist-tit">{{item.subject}}</text>
+                    <view class="mb15">
+                        <text class="cf0 ft12">￥</text>
+                        <text class="cf0 ft16 arial">{{item.price}}</text>
+                        <text class="c999 ft12">￥</text>
+                        <text class="c999 ft12 arial through">{{item.sale_price}}</text>
+                    </view>
+                    <view class="progress-bg rela">
+                        <view class="progress abs" style="width:{{item.selloutProgress}}%;"></view>
+                    </view>
+                    <view catchtap="buy" class="fr buy-btn ft14 ftc cfff {{item.btnClass}} abs" data-atid="{{item.atid}}" data-gid="{{item.gid}}" data-mode="{{item.selloutLabel}}">{{item.selloutLabel}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <template is="modal-input" data="{{title:title,placeholder:placeholder}}" wx:if="{{showInputModal}}"></template>
+</view>

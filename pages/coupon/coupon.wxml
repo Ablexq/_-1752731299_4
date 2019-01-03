@@ -1,0 +1,49 @@
+<view id="newCoupon">
+    <view class="flex bgfff nav" wx:if="{{mycodes}}">
+        <view bindtap="switchRightTab" class="it1 {{defaultId==1?'active':''}}" id="1">
+            <text class="ftc rela">未使用<text class="abs ft12 cfff num" wx:if="{{defaultId==1}}">{{nouseNum}}</text>
+            </text>
+        </view>
+        <view bindtap="switchRightTab" class="it1 {{defaultId==2?'active':''}}" id="2">
+            <text class="ftc">已使用</text>
+        </view>
+        <view bindtap="switchRightTab" class="it1 {{defaultId==3?'active':''}}" id="3">
+            <text class="ftc">已过期</text>
+        </view>
+    </view>
+    <view class="content pad10">
+        <view class="wrapper mb10" data-id="{{item.stats}}" wx:if="{{mycodes}}" wx:for="{{mycodes}}" wx:key="{{index}}">
+            <view class="quan flex {{item.stats==1?item.className:'used'}}">
+                <view class="info it1 bgfff">
+                    <view class="title ft12">{{item.top_tip}}</view>
+                    <view class="price rela">
+                        <image src="https://static.epetbar.com/static_web/wap/dist/images/noimages/newCoupon_{{item.stats==1?item.imgCode:'used'}}sign.png" wx:if="{{item.code_type==0}}"></image>
+                        <text class="num bold fontNum">{{item.avg_cost}}</text>
+                        <image src="https://static.epetbar.com/static_web/wap/dist/images/noimages/newCoupon_z{{item.stats==1?item.imgCode+'sign':'used'}}.png" wx:if="{{item.code_type==1}}"></image>
+                        <view class="name abs">
+                            <text class="bold">{{item.code_name}}</text>
+                            <view class="ft12">{{item.code_typestr}}</view>
+                        </view>
+                    </view>
+                    <view bindtap="showTip" class="c999 more ft16" id="{{'text'+index}}">详细信息 <text class="down fr"></text>
+                    </view>
+                </view>
+                <view class="sort ftc cfff rela">
+                    <view class="s-wrapper">
+                        <view class="s-cell">
+                            <view class="ftc ft15 bold">{{item.type_name}}</view>
+                            <view class="ftc ft12">有效期至{{item.wap_life_end}}</view>
+                            <image class="abs status" src="https://static.epetbar.com/static_web/wap/dist/images/noimages/newCoupon_used.png" wx:if="{{item.stats==2}}"></image>
+                            <image class="abs status" src="https://static.epetbar.com/static_web/wap/dist/images/noimages/newCoupon_outtime.png" wx:if="{{item.stats==3}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="tips ft12 c999 {{showIndex=='text'+index?'':'hide'}}">{{item.tip}}</view>
+        </view>
+        <view class="pt20 ftc ft12 c999" hidden="{{textFlag}}">
+            <image mode="aspectFit" src="https://static.epetbar.com/static_web/wap/dist/images/noimages/newCash_nodata.png" style="width:60%"></image>
+            <view>小主，你暂没有券哦~ </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,88 @@
+<view class="ft13 c333">
+    <view class="ftc top bgfff flex" wx:if="{{thisdata.stats_id==0||thisdata.stats_id==1||thisdata.stats_id==2}}">
+        <icon size="40" type="warn" wx:if="{{thisdata.stats_id==0}}"></icon>
+        <view class="newicon" wx:if="{{thisdata.stats_id!=0}}">
+            <image class="mr5 ml10" mode="widthFix" src="https://static.epetbar.com/static_web/wap/dist/images/wxmall/cat.png"></image>
+        </view>
+        <view class="ftl ml20">
+            <view class="ft16 c333 bold" wx:if="{{thisdata.stats_id==0}}">待付款</view>
+            <view class="ft16 c333 bold" wx:elif="{{thisdata.stats_id==1}}">待配货</view>
+            <view class="ft16 c333 bold" wx:elif="{{thisdata.stats_id==2}}">已发货</view>
+            <view class="ft12 c666" wx:if="{{thisdata.stats_id==0}}">尚未付款，请支付</view>
+            <view class="ft12 c666" wx:elif="{{thisdata.stats_id==1}}">您的订单正在配货中...</view>
+            <view class="ft12 c666" wx:elif="{{thisdata.stats_id==2}}">正在拼命的奔跑中...</view>
+        </view>
+    </view>
+    <view class="delive-con mt20">
+        <text class="ft16 c33 bold mr10">{{thisdata.addr_info.realname}}</text>
+        <text class="ft16 c33 bold">{{thisdata.addr_info.phone}}</text>
+        <view class=" mt10 ft12 c666">
+            <text>{{thisdata.addr_info.addrstr}}</text>
+        </view>
+    </view>
+    <view class="order mt20 bgfff">
+        <view class="title borbd7">
+            <image class="mr5 ml10" src="https://static.epetbar.com/static_web/wap/dist/images/wxmall/pot.jpg"></image>
+            <text class="ft13 c333">{{thisdata.ware_flag.display_name}}</text>
+            <text class="ft13 fr c333">共{{thisdata.goods.length}}件</text>
+        </view>
+        <view class="good flex bf3f4f5" wx:for="{{thisdata.goods}}" wx:for-item="goods" wx:key="goods">
+            <navigator class="inline-block mr10" url="../goodsdetail/goodsdetail?gid={{goods.gid}}">
+                <image mode="widthFix" src="{{goods.photo}}"></image>
+            </navigator>
+            <view class="goodtext flex">
+                <text class="ft14 c333">{{goods.subject}}
+        </text>
+                <view>
+                    <text class="cf0 fl ft12">¥</text>
+                    <text class="cf0 fl ft14">{{goods.price}}</text>
+                    <text class="fr c999 ft10">X{{goods.buynum}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="mt20 bgfff  other bf3f4f5">
+        <view class="mb20">订单编号：{{oid}}</view>
+        <view>下单时间：{{thisdata.gettime}}</view>
+    </view>
+    <view class="bgfff  other">
+        <view class="mb20">支付方式：微信支付</view>
+        <view>配送方式：{{thisdata.sendway.name}}</view>
+    </view>
+    <view class="bgfff  othertotal mt20 bf3f4f5 pt20">
+        <view class="mt20 mb20" wx:for="{{thisdata.money_items}}" wx:for-item="moneyitems" wx:key="moneyitems">
+      {{moneyitems.name}}: {{moneyitems.value}}
+    </view>
+    </view>
+    <view class="{{thisdata.left_time!=''?'pb40 total bgfff':'total bgfff'}}">
+        <text class="fr ft20 cf0 ml20">¥{{thisdata.summoney}}</text>
+        <text class="fr">订单总额</text>
+    </view>
+    <view class="btn-area">
+        <view class="mt20 ftc ft16 c333 btop" wx:if="{{thisdata.stats_id==0}}">
+            <view class="ftl pl30 pt10 ft13 bgfff" wx:if="{{thisdata.left_time!=''}}">剩<text class="cf0">{{leaveTime.h}}时{{leaveTime.m}}分{{leaveTime.s}}秒</text>自动取消订单</view>
+            <view bindtap="cancelorder" class="btn bgfff">取消订单</view>
+            <view bindtap="pay" class="btn bf03e3e cfff">立即支付</view>
+        </view>
+        <view class="mt20 ftc ft16 c333 btop" wx:elif="{{thisdata.stats_id==1}}">
+            <view bindtap="cancelorder" class="btn2 bgfff">取消订单</view>
+        </view>
+        <view class="mt20 ftc ft16 c333 btop" wx:elif="{{thisdata.stats_id==2}}">
+            <navigator url="../orderview/orderview?oid={{oid}}">
+                <view class="btn2 bf03e3e cfff">物流跟踪</view>
+            </navigator>
+        </view>
+    </view>
+    <view class="bg" wx:if="{{radiogroup}}">
+        <view class="radio-group">
+            <view class="ftc ft15">取消订单<image bindtap="closeReason" class="fr" src="https://static.epetbar.com/static_web/wap/src/images/close2.png"></image>
+            </view>
+            <radio-group bindchange="radioChange">
+                <label class="radio" wx:for="{{thisdata.repeal_reasons}}" wx:for-item="reasons" wx:key="reasons">
+                    <radio color="#ed4044" value="{{reasons.key}}"></radio>{{reasons.name}}
+      </label>
+            </radio-group>
+            <view bindtap="cancelorderyes" class="btn2 bgfff ftc">提交原因</view>
+        </view>
+    </view>
+</view>

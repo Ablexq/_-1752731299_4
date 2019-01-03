@@ -1,0 +1,59 @@
+<view class="add-address-wrap btop">
+    <view class="picker-wrap" wx:if="{{showPicker||showPickerStr}}"></view>
+    <view class="add-address-area bgfff">
+        <view class="ft14 address-item bbottom clearfix">
+            <text class="c666 fl mr30 aname">收 件 人</text>
+            <input bindblur="setUserName" class="fl" placeholder="请输入联系人" placeholderClass="phcolor" type="text" value="{{realname}}"></input>
+        </view>
+        <view class="ft14 address-item bbottom clearfix">
+            <text class="c666 fl mr30">手机号码</text>
+            <input bindblur="setPhone" class="fl" placeholder="请输入联系电话" placeholderClass="phcolor" type="number" value="{{mobilphone}}"></input>
+        </view>
+        <view class="ft14 address-item bbottom clearfix">
+            <text class="c666 fl mr30">所在地区</text>
+            <view bindtap="showPickerArea" class="showbtn c999 fl" data-picker="addr">{{addressName}}</view>
+        </view>
+        <view class="ft14 address-item bbottom clearfix" wx:if="{{showStrInput}}">
+            <text class="c666 fl mr30">所在区域</text>
+            <view bindtap="showPickerArea" class="showbtn c999 fl" data-picker="str">{{streetName}}</view>
+        </view>
+        <view class="ft14 address-item bbottom clearfix">
+            <text class="c666 fl mr30">详细地址</text>
+            <input bindblur="setDetailAddr" placeholder="请输入详细街道地址" placeholderClass="phcolor" type="text" value="{{detailAddr}}"></input>
+        </view>
+        <view class="ft14 address-item rela">
+            <text class="c666 block">设为默认地址</text>
+            <text class="c999 ft13">注：每次下单会使用该地址</text>
+            <switch bindchange="setDefault" checked="{{checkedDefault}}" class="abs"></switch>
+        </view>
+    </view>
+    <view bindtap="saveAddr" class="add-btn ftc cfff ft15" hoverClass="add-btn-hover">保存地址</view>
+    <view animation="{{animationData}}" class="picker-addr bgfff" wx:if="{{showPicker}}">
+        <view class="clearfix picker-btn ft16">
+            <text bindtap="cancelAddr" class="fl c999">取消</text>
+            <text bindtap="submitAddr" class="fr btn-submit">确定</text>
+        </view>
+        <picker-view bindchange="changeAddr" indicatorStyle="height: 50px;" value="{{value}}">
+            <picker-view-column>
+                <view class="ftc ft15" style="line-height: 50px" wx:for="{{addressData}}">{{item.name}}</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view class="ftc ft15" style="line-height: 50px" wx:for="{{cityData}}">{{item.name}}</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view class="ftc ft15" style="line-height: 50px" wx:for="{{areaData}}">{{item.name}}</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+    <view animation="{{animationData}}" class="picker-addr bgfff" wx:if="{{showPickerStr}}">
+        <view class="clearfix picker-btn ft16">
+            <text bindtap="cancelAddr" class="fl c999">取消</text>
+            <text bindtap="submitStr" class="fr btn-submit">确定</text>
+        </view>
+        <picker-view bindchange="changeStr" indicatorStyle="height: 50px;" value="{{value}}">
+            <picker-view-column>
+                <view class="ftc ft15" style="line-height: 50px" wx:for="{{streetData}}">{{item.name}}</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+</view>

@@ -1,0 +1,47 @@
+<import src="../../template/template.wxml"></import>
+<view class="flex-wrp">
+    <view bindtap="changtab" class="flex-item bc_green {{tab==1?'now':''}}" data-hi="1">全部订单</view>
+    <view bindtap="changtab" class="flex-item bc_red {{tab==2?'now':''}}" data-hi="2">待付款</view>
+    <view bindtap="changtab" class="flex-item bc_blue {{tab==3?'now':''}}" data-hi="3">待收货</view>
+</view>
+<scroll-view bindscroll="scrollList" bindscrolltolower="scrollBottom" lowerThreshold="20" scrollTop="{{scrollTop}}" scrollY="true" style="height:calc(100% - 80rpx);">
+    <view class="order_con" wx:for="{{ordersdata}}" wx:for-item="orders" wx:key="unique">
+        <navigator url="../orderdetail/orderdetail?oid={{orders.oid}}&stats_id={{orders.stats_id}}">
+            <view class="clearfix ft13 pot c333">
+                <image class="fl" src="https://static.epetbar.com/static_web/wap/dist/images/wxmall/pot.jpg"></image>
+                <text class="fl">{{orders.display_name}}</text>
+                <text class="fr cea5858">{{orders.stats}}</text>
+            </view>
+        </navigator>
+        <navigator class="nowtext con_image" url="../goodsdetail/goodsdetail?gid={{orders.list[0].gid}}" wx:if="{{orders.list.length==1}}">
+            <image class="mr10" mode="widthFix" src="{{orders.list[0].photo}}"></image>
+            <text class="ft12 c333">{{orders.list[0].subject}}</text>
+        </navigator>
+        <view class="scroll-view" wx:else>
+            <scroll-view scrollX class="nowrap con_image">
+                <navigator class="inline-block mr10" url="../goodsdetail/goodsdetail?gid={{listitem.gid}}" wx:for="{{orders.list}}" wx:for-item="listitem" wx:key="unique">
+                    <image mode="widthFix" src="{{listitem.photo}}"></image>
+                </navigator>
+            </scroll-view>
+        </view>
+        <view class="clearfix pot2  c333 borbd7">
+            <text class="fl ft12">订单编号：{{orders.oid}}</text>
+            <text class="fr">{{orders.summoney}}</text>
+        </view>
+        <view class="clearfix">
+            <view bindtap="pay" class="btn red-btn fr cea5858" data-oid="{{orders.oid}}" wx:if="{{orders.stats_id==0}}">立即支付</view>
+            <navigator class="btn red-btn fr cea5858" url="../orderview/orderview?oid={{orders.oid}}" wx:if="{{orders.stats_id==1}}">物流跟踪</navigator>
+            <navigator class="btn gry-btn fr c333" url="../orderview/orderview?oid={{orders.oid}}" wx:if="{{orders.stats_id==2}}">物流跟踪</navigator>
+            <view bindtap="confirmOrder" class="btn red-btn fr cea5858" data-oid="{{orders.oid}}" wx:if="{{orders.stats_id==2}}">确认收货</view>
+            <navigator bindtap="rebuy" class="btn gred-btn fr c333" data-id="{{orders.oid}}" url="" wx:if="{{orders.stats_id==4}}">再次购买</navigator>
+            <navigator bindtap="rebuy" class="btn red-btn fr cea5858" data-id="{{orders.oid}}" url="" wx:if="{{orders.stats_id==-1}}">再次购买</navigator>
+            <navigator class="btn red-btn fr cea5858" url="../orderview/orderview?oid={{orders.oid}}" wx:if="{{orders.stats_id==-4}}">物流跟踪</navigator>
+        </view>
+    </view>
+    <view class="ftc ft12 c999 pt150" hidden="{{textFlag}}">
+        <view class="epetIco1"></view>
+        <view>小主，您还没有相关订单！~ </view>
+    </view>
+    <template is="loading-toast" data="{{showLoadingToast:showLoadingToast,showLoadingImg:showLoadingImg,loadingToast:loadingToast}}"></template>
+    <template is="go-top" data="{{showPageInfo:showPageInfo}}"></template>
+</scroll-view>

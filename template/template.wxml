@@ -1,0 +1,76 @@
+<template name="go-top">
+    <view wx:if="{{showPageInfo}}">
+        <image bindtap="goTop" class="go-top" src="https://static.epetbar.com/static_web/wap/src/images/wxmall/top.png"></image>
+    </view>
+</template>
+<template name="loading-toast">
+    <view class="ftc c999 ft15 toast-info" wx:if="{{showLoadingToast}}">
+        <image src="https://static.epetbar.com/static_web/wap/src/images/loading.gif" wx:if="{{showLoadingImg}}"></image>{{loadingToast}}</view>
+</template>
+<template name="buynum-input">
+    <view class="buynum-wrap clearfix mt6 fl {{radiusInput?'buynum-wrap-radius':''}} {{item.disable_num==1?'disnum-wrap':''}}">
+        <text bindtap="changenum" class="ft20 fl" data-gid="{{item.gid}}" data-item="{{listindex}}" data-itemparent="{{ordersindex}}" data-type="subtract" wx:if="{{item.disable_num!=1}}">-</text>
+        <input bindchange="changeInput" class="text ft13 ftc fl arial" data-gid="{{item.gid}}" data-item="{{listindex}}" data-itemparent="{{ordersindex}}" disabled="{{item.disable_num==1}}" readonly="" size="5" type="number" value="{{item.buynum}}"></input>
+        <text bindtap="changenum" class="fl ft18" data-gid="{{item.gid}}" data-item="{{listindex}}" data-itemparent="{{ordersindex}}" data-type="add" wx:if="{{item.disable_num!=1}}">+</text>
+    </view>
+</template>
+<template name="modal-input">
+    <view catchtouchmove="preventTouchMove" class="modal-mask"></view>
+    <view class="modal-dialog rela">
+        <view class="modal-title ft18">{{title}}</view>
+        <view class="modal-content">
+            <input bindblur="inputChange" class="input ft16" maxlength="11" placeholder="{{placeholder}}" placeholderClass="input-holder" type="number"></input>
+        </view>
+        <view class="modal-footer abs">
+            <text bindtap="modalCancel" class="btn-cancel fl" data-status="cancel">取消</text>
+            <text bindtap="modalConfirm" class="btn-confirm fr" data-status="confirm">确定</text>
+        </view>
+    </view>
+</template>
+<template name="divide">
+    <view style="height:{{dh?dh:'19'}}rpx;background:{{dbg?dbg:'#f5f6f7'}};"></view>
+</template>
+<template name="search">
+    <view class="search-wrap btop bgfff {{isFtc?'ftc':''}}">
+        <navigator openType="{{openType?openType:'navigate'}}" url="../search/search" wx:if="{{hasNavigator}}">
+            <view class="search-area">
+                <icon size="12" type="search"></icon>
+                <text wx:if="{{keyword}}">{{keyword}}</text>
+                <text wx:else>{{searchText}}</text>
+            </view>
+        </navigator>
+        <view class="search-area search-input-area ft12" wx:else>
+            <icon class="fl" size="12" type="search"></icon>
+            <input bindblur="changeValue" bindchange="changeValue" bindconfirm="submitSearch" class="fl" placeholder="{{searchText}}" type="text"></input>
+        </view>
+    </view>
+</template>
+<template name="goodslist">
+    <view class="goodslist bgfff">
+        <view bindtap="goDetail" class="goodsitem clearfix rela" data-gid="{{item.gid}}" wx:for="{{goodslist}}" wx:key="{{item.gid}}">
+            <view class="fl rela">
+                <image class="goods-img fl" lazyLoad="true" src="{{item.photo}}"></image>
+                <image class="country-photo" lazyLoad="true" src="{{item.country_photo}}" wx:if="{{item.country_photo}}"></image>
+                <view class="sold-out abs" wx:if="{{item.stock==0}}"></view>
+            </view>
+            <view class="goods-con fr bbottom">
+                <text class="ft12 el2 c333">{{item.subject}}</text>
+                <view class="cu">
+                    <image bindload="imgLoad" class="mr5" data-idx="{{idx}}" data-index="{{index}}" lazyLoad="true" mode="aspectFit" src="{{img.image}}" style="width:{{images[index][idx].width}}rpx;height:{{images[index][idx].height}}rpx;" wx:for="{{item.activityLabels}}" wx:for-index="idx" wx:for-item="img" wx:key="{{index}}"></image>
+                </view>
+                <view class="ft12">
+                    <view class="price-wrap">
+                        <span class="cf0 ft12 bold">￥</span>
+                        <span class="cf0 ft14 bold goodsprice">{{item.sale_price}}</span>
+                        <span class="c333 ft12">{{item.dprice}}</span>
+                    </view>
+                    <view class="c999">
+                        <span class="comments">{{item.comments}}</span>
+                        <span>{{item.sold}}</span>
+                        <image catchtap="addCart" class="addcart fr" data-gid="{{item.gid}}" src="https://static.epetbar.com/static_web/wap/src/images/wxmall/addcart.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

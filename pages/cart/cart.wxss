@@ -1,0 +1,230 @@
+page {
+    background: #f3f4f5;
+}
+
+.cartview {
+    padding-bottom: 120rpx;
+}
+
+.cart {
+}
+
+.mycart-tit {
+    display: flex;
+    flex-direction: row;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-left: 30rpx;
+}
+
+checkbox .wx-checkbox-input {
+    border-radius: 50%;
+    border: 1px solid #8b8b8b;
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+    color: #fff!important;
+    background: #ed4044;
+    border: 1px solid #ed4044;
+}
+
+.icon_img {
+    display: inline-block;
+    width: 32rpx;
+    height: 32rpx;
+    background: url('https://static.epetbar.com/mpet/images/newfh-ico.png') no-repeat;
+    background-size: 100% 100%;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+
+.icon {
+    border-bottom: 1px solid #e5e5e5;
+    flex: 1;
+}
+
+.icon-img {
+    width: 33%!important;
+    height: 40rpx!important;
+}
+
+.phead {
+    color: #f03e3e;
+    border: 1px solid #f03e3e;
+    border-radius: 4px;
+    padding: 0px 5px 0 5px;
+    position: relative;
+    top: -1px;
+    margin-right: 10rpx;
+    font-size: 20rpx;
+}
+
+.quest {
+    background: #f1f1f1;
+    border: 1px solid #d8d8d8;
+    color: #999;
+    border-radius: 50%;
+    width: 30rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 15rpx;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.goods {
+}
+
+.cartBox {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 9.05rpx;
+    padding-left: 30rpx;
+}
+
+.good {
+    box-sizing: border-box;
+    padding: 0 18.1rpx 0 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.touch-move-active {
+    transform: translateX(-120rpx);
+}
+
+.goodsimg {
+    float: left;
+    margin: 18.5rpx 18.1rpx 0 0;
+}
+
+.good image {
+    width: 182rpx;
+    height: 182rpx;
+}
+
+.good checkbox {
+    margin-top: 86rpx;
+    float: left;
+}
+
+.good .other {
+    overflow: hidden;
+    height: 219rpx;
+    position: relative;
+    box-sizing: border-box;
+    padding: 18.1rpx 0;
+}
+
+.good .other>navigator {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.ft13 {
+    font-size: 13px;
+}
+
+.good .other .ware {
+    font-size: 11px;
+    width: 120rpx;
+    color: #ff3f48;
+    background: #f9c8cb;
+    padding: 5rpx;
+    text-align: center;
+    border-radius: 5rpx;
+    margin-top: 20rpx;
+}
+
+.good .other .money {
+    color: #f03e3e;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 22rpx;
+}
+
+.other .bottom {
+    width: 100%;
+    position: absolute;
+    bottom: 18.1rpx;
+}
+
+.total {
+    position: fixed;
+    bottom: 0;
+    height: 90.5rpx;
+    line-height: 90.5rpx;
+    z-index: 10;
+    width: 100%;
+    color: #f03e3e;
+    border-top: 1px solid #e1e1e1;
+    padding-left: 30rpx;
+}
+
+.total .gopay {
+    width: 280rpx;
+    text-align: center;
+    background: #f03e3e;
+    color: #fff;
+}
+
+.del {
+    width: 120rpx;
+    background: #f03e3e;
+    position: absolute;
+    top: 0;
+    right: -120rpx;
+    z-index: 10;
+    height: 219rpx;
+    line-height: 219rpx;
+}
+
+.noorder image {
+    width: 200rpx;
+    margin: 100rpx 0 50rpx;
+}
+
+.btn text {
+    display: inline-block;
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 200rpx;
+    margin: 0 10rpx;
+    border: 1px solid #999;
+    border-radius: 5px;
+    margin-top: 40rpx;
+}
+
+.invalid {
+    line-height: 219rpx;
+}
+
+.invalid text {
+    background: #aaa;
+    border-radius: 10rpx;
+    padding: 0 4px;
+    margin-right: 10rpx;
+}
+
+.clear-invalid {
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin-right: 18.1rpx;
+}
+
+.cessTotal {
+    position: absolute;
+    right: 18.1rpx;
+    top: 15rpx;
+    font-size: 14px;
+    color: #999;
+}

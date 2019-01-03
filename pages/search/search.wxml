@@ -1,0 +1,28 @@
+<import src="../../template/template.wxml"></import>
+<view>
+    <view class="clearfix bgfff pb15">
+        <template is="search" data="{{hasNavigator:hasNavigator,searchText:searchText,isFtc:isFtc,changeValue:changeValue}}"></template>
+        <text bindtap="search" class="fl search-btn ft16 ml10">搜索</text>
+    </view>
+    <view class="hot">
+        <view class="hot-tit">
+            <image class="mr10" src="https://static.epetbar.com/static_wap/epetapp/pages/search/images/rmss.png"></image>
+            <text class="c666">精品推荐</text>
+        </view>
+        <view class="hot-list">
+            <span bindtap="setHistory" class="ft12 c999 dib mr15" data-word="{{item.words}}" wx:for="{{hotList}}">
+        {{item.words}}
+      </span>
+        </view>
+        <view class="hot-tit">
+            <image class="mr10" src="https://static.epetbar.com/static_wap/epetapp/pages/search/images/zjss.png"></image>
+            <text class="c666">最近搜索</text>
+        </view>
+        <view class="history-list">
+            <view class="bbottom ft12 c333" wx:if="{{historyData}}" wx:for="{{historyData}}">
+                <navigator openType="redirect" url="../goodslist/goodslist?keyword={{item}}" wx:if="{{item!=null&&item!=''}}">{{item}}</navigator>
+            </view>
+        </view>
+        <view bindtap="clearHistory" class="clear-history ft12 c333 ftc">清空历史</view>
+    </view>
+</view>

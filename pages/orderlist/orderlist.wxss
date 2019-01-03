@@ -1,0 +1,188 @@
+page {
+    background: #f3f4f5;
+    padding-bottom: 20rpx;
+}
+
+.icon-more {
+    font-weight: bold;
+    font-size: 20px;
+    color: #c8c8cd;
+    right: 0;
+    top: 2rpx;
+}
+
+.delivered {
+    background: #fffdf6;
+}
+
+.delivered .icon-more {
+    top: calc(50% - 10px);
+}
+
+.delivered image {
+    width: 100%;
+    display: block;
+}
+
+.delive-con {
+    background: #fff;
+    padding: 30rpx 30rpx;
+    background: #fffdf6;
+}
+
+.de-address text {
+    background: #f03e3e;
+    border-radius: 3px;
+    padding: 0px 5px;
+    margin-right: 5px;
+    color: #fff;
+}
+
+.order .title {
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 30rpx;
+}
+
+.order .title image {
+    width: 28rpx;
+    height: 25rpx;
+}
+
+.borbd7 {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.bf3f4f5 {
+    border-bottom: 1px solid #f3f4f5;
+}
+
+.order .good {
+    padding: 30rpx;
+}
+
+.order .good image {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.order .good>navigator {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.order .good .goodtext {
+    margin-left: 50rpx;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.ft10 {
+    font-size: 10px;
+    margin-top: 5rpx;
+}
+
+.delivery {
+    height: 100rpx;
+    line-height: 100rpx;
+    padding: 0 30rpx;
+}
+
+.singletit::after {
+    content: " ";
+    display: inline-block;
+    height: 20rpx;
+    width: 20rpx;
+    border-width: 2px 2px 0 0;
+    border-color: #c8c8cd;
+    border-style: solid;
+    transform: matrix(0.71,0.71,-.71,0.71,0,0);
+    position: absolute;
+    top: 45rpx;
+    margin-top: -4px;
+    right: -2px;
+}
+
+.total {
+    padding: 30rpx;
+}
+
+button {
+    width: 700rpx;
+}
+
+button[type="default"] {
+    color: #333;
+    background-color: #f3f4f5;
+}
+
+.picker-wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    z-index: 10;
+}
+
+.picker-send-way {
+    width: 100%;
+    height: 400rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 11;
+}
+
+.picker-send-way picker-view {
+    height: 400rpx;
+}
+
+.picker-send-way .picker-btn {
+    padding: 0 20rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.btn-submit {
+    color: #5fcf48;
+}
+
+.orderBtnBox {
+    height: 99rpx;
+}
+
+.orderBtnBox .orderBtn {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 99rpx;
+    background: #1AAD19;
+    font-size: 15px;
+    color: #fff;
+    line-height: 99rpx;
+    text-align: center;
+}
+
+.BtnGreen {
+    background: #5fcf48!important;
+}
+
+.orderPd {
+    padding: 15rpx 0 15rpx 30rpx;
+    background: #ffdee0;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+@media screen and (max-width:320px) {
+    .orderPd {
+        font-size: 11px;
+    }
+
+    .orderPd .fr {
+        display: none;
+    }
+}

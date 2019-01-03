@@ -1,0 +1,18 @@
+<view id="orderview">
+    <view class="status btop bbottom c666 ft14 bgfff">
+        <view class="mb10">物流状态:<text class="cf0">{{status}}</text>
+        </view>
+        <view class="mb10">配送方式:<text>{{sendway}}</text>
+        </view>
+        <view class="mb10">订单编号:<text>{{oid}}</text>
+        </view>
+    </view>
+    <view class="list rela" wx:if="{{delist}}">
+        <view class="{{index==length?'':'bbottom'}} item ft12 c666 rela {{index!=0?'':'cf0'}}" wx:for="{{delist}}">
+            <view class="info mt20">{{item.info}}</view>
+            <view class="pt20 pb20">{{item.time}}</view>
+            <text class="abs dicon"></text>
+        </view>
+        <view class="abs tree"></view>
+    </view>
+</view>
